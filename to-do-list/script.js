@@ -10,6 +10,11 @@ function onFormSubmit(e) {
 // untuk menampilkan mengirim kan sebuah item
   list.appendChild(createListItem(inputValue))
 }
+ function onDeleteItem(e){
+    const patent = e.target.parentElement
+    console.log(patent)
+    list.removeChild(patent)
+ }
 
 function createListItem(inputValue){
     const item = document.createElement("div")
@@ -18,7 +23,7 @@ function createListItem(inputValue){
     <input type="checkbox"/>
     <span>${inputValue}</span>
     </div>
-    <button>x</button>
+    <button onclick = "onDeleteItem(event)">x</button>
    `
    
     return item
