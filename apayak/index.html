@@ -8,18 +8,22 @@
   <body>
     <input type="text" placeholder="Input Nama...." id="input" />
     <button id="submit">Submit</button>
-    <p>Nama Yang kamu Input Adalah : <span id="hasil"></span></p>
+    <p>Nama Yang kamu Input Adalah : <span class="hasil"></span></p>
 
-
+    <p> Hallo <span class="hasil"></span> Apa kabar?</p>
     <script>
-      var hasil = document.getElementById("hasil");
+      var hasil = document.getElementsByClassName("hasil");
       const submit = document.getElementById("submit");
       submit.onclick = ambilNilai;
       console.log(submit);
 
       function ambilNilai() {
         var text = document.getElementById("input").value;
-        hasil.innerHTML = text;
+        // hasil.innerHTML = text;
+         // Iterasi melalui koleksi elemen dengan kelas "hasil"
+         for (var i = 0; i < hasil.length; i++) {
+          hasil[i].innerHTML = text ;
+        }
       }
     </script>
   </body>
