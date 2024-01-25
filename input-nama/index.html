@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Input Nama...." id="input" />
+    <button id="submit">Submit</button>
+    <p>Nama Yang kamu Input Adalah : <span id="hasil"></span></p>
+
+
+    <script>
+      var hasil = document.getElementById("hasil");
+      const submit = document.getElementById("submit");
+      submit.onclick = ambilNilai;
+      console.log(submit);
+
+      function ambilNilai() {
+        var text = document.getElementById("input").value;
+        hasil.innerHTML = text;
+      }
+    </script>
+  </body>
+</html>
