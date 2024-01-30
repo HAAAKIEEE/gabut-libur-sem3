@@ -109,7 +109,7 @@
         inGame.textContent =  "....."
         result.textContent = "....."
         setTimeout(()=> {
-            inGame.textContent = `${start.playerName}: ${start.getPlayerOption} VS ${start.botName} :${start.botOption}`;
+            inGame.innerHTML = `${start.playerName}: ${start.getPlayerOption}<br> VS <br> ${start.botName}: ${start.getBotOption}`;
         result.textContent = start.matchResult()
         },1000)
 
