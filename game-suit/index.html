@@ -1,27 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="app">
-<h1 class="title">Game Gunting Batu Kertas</h1>
-<h1 class="result"></h1>
-<div>
-<div id="tampil"></div>
-<div id="tampil-musuh"></div>
-</div>
-
-<button>Gunting</button>
-<button>Batu</button>
-<button>Kertas</button>
+      <div class="sumary">
+        <h1 class="title">Mini Game</h1>
+      
+        <h1 id="inGame" style="margin-top: 20px;"></h1>
+     
+        <h3 id="result" style="margin-top: 20px;"></h3>
+      </div>
+      <div class="game">
+        <div class="option" onclick="pickOption('✌')">✌</div>
+        <div class="option" onclick="pickOption('✊')">✊</div>
+        <div class="option" onclick="pickOption('🤚')">🤚</div>
+      </div>
     </div>
 
+    <script>
+      class Start {
+        constructor() {
+          this.playerName = "Kamu";
+          this.botName = "HakiBot";
+          this.playerOption;
+          this.botOption;
+          this.winner = "";
+        }
 
+        get getBotOption() {
+          return this.botOption;
+        }
 
-    <script src="script.js"> </script>
-</body>
+        set setBotOption(option) {
+          this.botOption = option;
+        }
+
+        get getPlayerOption() {
+          return this.playerOption;
+        }
+
+        set setPlayerOption(option) {
+          this.playerOption = option;
+        }
+
+        botBrain() {
+          const option = ["✌", "🤚", "✊"];
+          const bot = option[Math.floor(Math.random() * option.length)];
+          this.setBotOption = bot;
+        }
+
+        winKalkulasi(){
+            if(this.botOption == "✊" && this.playerOption == "🤚" ){
+                return this.winner = this.playerName;
+            }
+            else if(this.botOption == "✊" && this.playerOption == "✌" ){
+                return this.winner = this.botName;
+            }
+            else if(this.botOption == "🤚" && this.playerOption == "✌" ){
+                return this.winner = this.playerName;
+            }
+            else if(this.botOption == "🤚" && this.playerOption =="✊"){
+                return this.winner = this.botName;
+            }
+            else if(this.botOption == "✌" && this.playerOption == "✊" ){
+                return this.winner = this.playerName;
+            }
+            else if(this.botOption == "✌" && this.playerOption == "🤚" ){
+                return this.winner = this.botName;
+            }
+            else{
+                return this.winner = "Draw";
+            }
+        }
+
+        matchResult(){
+            if(this.winner != "Draw"){
+                return `${this.winner} Menang!`
+            }
+            else{
+                return `WAAAHHH ${this.winner},Gak ada yang Menang 🤣😂🤣`
+
+            }
+        }
+    }
+
+      function pickOption(paramet) {
+        // console.log("option di pilih",paramet)
+        // const playerOption = paramet;
+        // pemanggilan class
+        const start = new Start();
+        start.setPlayerOption = paramet;
+        start.botBrain();
+        // console.log("hai kamu memilih", start.playerOption);
+        // console.log("hai bot memilih", start.botOption);
+        // console.log(`Kamu : ${start.getPlayerOption} VS Bot :${start.botOption}`);
+
+        start.winKalkulasi();
+        // console.log("Pemenang :",start.winner)
+        // console.log("hasil :",start.matchResult())
+        
+        const inGame = document.getElementById("inGame");
+        const result = document.getElementById("result");
+        inGame.textContent =  "....."
+        result.textContent = "....."
+        setTimeout(()=> {
+            inGame.textContent = `${start.playerName}: ${start.getPlayerOption} VS ${start.botName} :${start.botOption}`;
+        result.textContent = start.matchResult()
+        },1000)
+
+       
+      }
+    </script>
+  </body>
 </html>
