@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+        <!-- PAKAI WEB web3fom -->
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="eec50f59-67bf-4620-ad1a-96edafa85d56">
+        <h3>Get In touch</h3>
+        <input name="Name" type="text" id="name" placeholder="Your Name" required />
+        <input name="Email" type="email" id="email" placeholder="Your Email" required />
+        <input
+            name="Phone"
+          type="text"
+          id="phone"
+          placeholder="Your Phone Number"
+          required
+        />
+        <textarea
+          name="Massage"
+          id=""
+          rows="4"
+          placeholder="Apayang bisa kami bantu?"
+        ></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+    
+    </script>
+  </body>
+</html>
